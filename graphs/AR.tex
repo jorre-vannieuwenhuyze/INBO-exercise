@@ -1,0 +1,130 @@
+% !TEX program = xelatex
+
+
+\documentclass{../Jorrearticle}
+
+\usepackage{tabularray}
+\usepackage{tikz}
+\input{tikzset.tex}
+
+\usepackage[active,tightpage]{preview}
+\newenvironment{previewoutput}{}{}
+\PreviewEnvironment{previewoutput}
+\setlength{\PreviewBorder}{0pt} 
+
+
+\begin{document}
+
+
+
+
+
+
+\tikzset{y=.5mm}
+
+
+\newcommand\yaxis{%
+	\begin{tikzpicture}[baseline=0,trim right=0,remember picture]
+	\draw[black!50] (0,0) -- (0,170);
+	\foreach \y/\l in {0/0,50/50,100/100/150/150}{
+		\draw[black!50] (0,\y) -- +(-2mm,0) node(S)[yaxislabel]{\l\strut};
+		}
+	\node[axistitle,black!50,anchor=south west,xshift=-10mm,align=left] at (0,170) 
+		{Zuurstofverzadiging (\%)};			
+	\end{tikzpicture}%
+	}
+		
+	
+\newcommand\yaxisb{%
+	\begin{tikzpicture}[baseline=0]
+	\node[plotlabel,black!50,anchor=west,align=left,xshift=2pt] at (0,106.6088) {gemiddelde = 107};	
+	\node[plotlabel,red!80!black,anchor=west,align=left,xshift=2pt] at (0,140) {grenswaarde = 140};
+	\end{tikzpicture}%
+	}	
+	
+	
+\newcommand\xaxis{%
+	\begin{tikzpicture}[x=\linewidth/11,trim left=0,trim right=\linewidth]
+	\foreach \x/\l in {0/j,1/f,2/m,3/a,4/m,5/j,6/j,7/a,8/s,9/o,10/n,11/d}{
+		\node at (\x,0) [xaxislabel,align=center]{\l};
+		}
+	\end{tikzpicture}%
+	}
+
+\newcommand\body{%
+	\begin{tikzpicture}[x=\linewidth/11]
+	\useasboundingbox (1,0) rectangle (12,170);
+%	\foreach \y/\l in {0/0,1/10\,000,2/20\,000,3/30\,000,4/40\,000,5/50\,000}{
+%		\draw[mistgray] (0,\y) -- (11,\y);
+%		}
+	\draw[black!50] (1,106.6088) -- +(11,0);
+	\draw[red!80!black] (1,140) -- +(11,0);
+	\filldraw (1,91.1750) circle(1pt) -- (2,98.4500) circle(1pt) -- (3,110.7667) circle(1pt) -- (4,112.3600) circle(1pt) -- (5,127.7846) circle(1pt) -- (6,123.0312) circle(1pt) -- (7,129.2077) circle(1pt) -- (8,108.8500) circle(1pt) -- (9,113.7364) circle(1pt) -- (10,93.4786) circle(1pt) -- (11,86.4800) circle(1pt) -- (12,83.9857) circle(1pt);
+	\end{tikzpicture}%
+	}
+
+
+\begin{figure}[h]
+\begin{previewoutput}
+%\graphtitle{Testresultaten met relatief lage variatie tussen labotesten en dus hoge ICC.}
+\begin{tblr}{
+	width=\linewidth,
+	colspec={rX[c]r},
+	column{1}={leftsep=0pt},
+	column{Z}={rightsep=0pt,leftsep=0pt},
+	rows={rowsep=0pt},
+%	columns={colsep=0pt},
+%	stretch=0,
+	}
+\yaxis & \body & \yaxisb \\ 
+& \xaxis &  \\ 
+\end{tblr}
+\end{previewoutput}
+\end{figure}
+
+
+
+
+
+
+
+
+
+\renewcommand\body{%
+	\begin{tikzpicture}[x=\linewidth/11]
+		\useasboundingbox (1,0) rectangle (12,170);
+		%	\foreach \y/\l in {0/0,1/10\,000,2/20\,000,3/30\,000,4/40\,000,5/50\,000}{
+			%		\draw[mistgray] (0,\y) -- (11,\y);
+			%		}
+		\draw[black!50] (1,106.6088) -- +(11,0);
+		\draw[red!80!black] (1,140) -- +(11,0);
+		\filldraw (1,87.1330) circle(1pt) -- (2,50.4598) circle(1pt) -- (3,142.6651) circle(1pt) -- (4,107.1674) circle(1pt) -- (5,159.3446) circle(1pt) -- (6,155.1313) circle(1pt) -- (7,92.2489) circle(1pt) -- (8,74.1898) circle(1pt) -- (9,107.8442) circle(1pt) -- (10,116.5891) circle(1pt) -- (11,123.8961) circle(1pt) -- (12,62.6365) circle(1pt);
+	\end{tikzpicture}%
+}
+
+
+\begin{figure}[h]
+	\begin{previewoutput}
+		%\graphtitle{Testresultaten met relatief lage variatie tussen labotesten en dus hoge ICC.}
+		\begin{tblr}{
+				width=\linewidth,
+				colspec={rX[c]r},
+				column{1}={leftsep=0pt},
+				column{Z}={rightsep=0pt,leftsep=0pt},
+				rows={rowsep=0pt},
+				%	columns={colsep=0pt},
+				%	stretch=0,
+			}
+			\yaxis & \body & \yaxisb \\ 
+			& \xaxis &  \\ 
+		\end{tblr}
+	\end{previewoutput}
+\end{figure}
+
+
+
+
+\end{document}
+
+		
+

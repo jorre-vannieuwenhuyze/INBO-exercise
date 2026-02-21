@@ -1,0 +1,101 @@
+% !TEX program = xelatex
+
+
+\documentclass{../Jorrearticle}
+
+\usepackage{tabularray}
+\usepackage{tikz}
+\input{tikzset.tex}
+
+\usepackage[active,tightpage]{preview}
+\newenvironment{previewoutput}{}{}
+\PreviewEnvironment{previewoutput}
+\setlength{\PreviewBorder}{0pt} 
+
+
+\begin{document}
+
+
+
+
+
+
+\tikzset{y=50mm}
+
+
+\newcommand\yaxis{%
+	\begin{tikzpicture}[baseline={(0,7.8)},trim right=0,remember picture]
+	\draw[black!50] (0,7.8) -- (0,8.8);
+	\foreach \y/\l in {8.0/8.0,8.2/8.2,8.4/8.4,8.6/8.6}{
+		\draw[black!50] (0,\y) -- +(-2mm,0) node(S)[yaxislabel]{\l\strut};
+		}
+	\node[axistitle,black!50,anchor=south west,xshift=-10mm,align=left] at (0,8.8) 
+		{pH-waarde};			
+	\end{tikzpicture}%
+	}
+		
+	
+\newcommand\yaxisb{%
+%	\begin{tikzpicture}[baseline=0]
+%	\node[plotlabel,black!50,anchor=west,align=left,xshift=2pt] at (0,9.016652) {gemiddelde = 9.02};	
+%	\node[plotlabel,red!80!black,anchor=west,align=left,xshift=2pt] at (0,10.5) {grenswaarde = 10,5};
+%	\end{tikzpicture}%
+	}	
+	
+	
+\newcommand\xaxis{%
+	\begin{tikzpicture}[x=\linewidth/50,trim left=0,trim right=\linewidth]
+	\draw[black!50] (0,0) -- (50,0);
+	\foreach \x/\l in {10/90,20/100,30/110,40/120}{
+		\draw[black!50] (\x,0) -- +(0,-2mm) node(S)[xaxislabel]{\l\strut};
+		}
+	\node[axistitle,black!50,anchor=north east,yshift=-6mm,align=right] at (50,0) 
+		{Zuurstofverzadiging (\%)};
+	\end{tikzpicture}%
+	}
+
+\newcommand\body{%
+	\begin{tikzpicture}[x=\linewidth/50]
+	\useasboundingbox (80,7.8) rectangle (130,8.8);
+%	\foreach \y/\l in {0/0,1/10\,000,2/20\,000,3/30\,000,4/40\,000,5/50\,000}{
+%		\draw[mistgray] (0,\y) -- (11,\y);
+%		}
+	\foreach \x/\y in {91.1750/8.0188,98.4500/8.1827,110.7667/8.4083,112.3600/8.5360,127.7846/8.6215,123.0312/8.7359,129.2077/8.6598,108.8500/8.4184,113.7364/8.4025,93.4786/7.9183,86.4800/7.8597,83.9857/7.9695}{
+		\fill (\x,\y) circle(2pt);
+		}
+	\end{tikzpicture}%
+	}
+
+
+\begin{figure}[h]
+\begin{previewoutput}
+%\graphtitle{Testresultaten met relatief lage variatie tussen labotesten en dus hoge ICC.}
+\begin{tblr}{
+	width=\linewidth,
+	colspec={rX[c]},
+	column{1}={leftsep=0pt},
+	column{Z}={rightsep=0pt},
+%	rows={rowsep=0pt},
+%	columns={colsep=0pt},
+%	stretch=0,
+	}
+\yaxis & \body \\ 
+& \xaxis \\ 
+\end{tblr}
+\end{previewoutput}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
+
+		
+

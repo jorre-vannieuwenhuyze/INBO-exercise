@@ -1,7 +1,10 @@
 \documentclass{Jorrearticle}
 
+\usepackage[dutch]{babel}
 \usepackage{amsmath}
 \usepackage{tcolorbox}
+\usepackage{tabularray}
+\usepackage{tikz}
 
 \title{INBO-opdracht\\Statistisch Analyse Plan}
 \author{Jorre Vannieuwenhuyze}
@@ -13,7 +16,6 @@
 	
 \maketitle
 	
-
 \begin{tcolorbox}
 Case 1:
 
@@ -21,541 +23,201 @@ Om de kwaliteit van waterplassen te evalueren worden verschillende
 waterkwaliteitsparameters opgevolgd (Tabel 1). Gedurende één jaar wordt maandelijks
 een mengstaal van de waterplas genomen. In het laboratorium wordt elke parameter
 vervolgens in duplo geanalyseerd.
-
+	
 Omdat het onderzoeksteam jaarlijks de waterkwaliteit van meerdere plassen moet
 beoordelen, wordt aan het team BMK gevraagd om het onderzoeksdesign voor de
 volgende studie (gericht op één plas) te optimaliseren.
-
+		
 Vorig jaar werden reeds verschillende plassen onderzocht. De resultaten daarvan zijn
 beschikbaar in het meegeleverde CSV‑bestand case1.csv. Voor elke waterplas wordt het
 maandelijkse gemiddelde van elke parameter vergeleken met de wettelijke streef- en
 grenswaarden.	
 \end{tcolorbox}
-
-
-
-
-
-
-
-
-
-
-
-
+	
 Het doel van deze studie is het optimaliseren van het onderzoeksdesign
 voor de jaarlijkse evaluatie van de waterkwaliteit van één waterplas.
 De evaluatie gebeurt op basis van vergelijking van maandelijkse metingen
 van verschillende waterkwaliteitsparameters met wettelijke streef- en
 grenswaarden.
-
-De optimalisatie van het onderzoeksdesing zoekt naar een design waarin op voldoende betrouwbare manier kan worden vastgesteld of een plas de streef- of grenswaarde overschrijdt, met zo weinig mogelijk staalnames en labkosten. Hoe meer staalnames worden getrokken en hoe meer deze staalnames geanalyseerd worden, hoe betrouwbaarder de resultaten maar ook hoe hoger de kosten.
-
-Concreet beoogt dit analyseplan:
-
+	
+De optimalisatie van het onderzoeksdesign zoekt naar een design waarin op voldoende betrouwbare manier kan worden vastgesteld of een plas de streef- of grenswaarde overschrijdt, met zo weinig mogelijk staalnames en labkosten. Hoe meer staalnames worden getrokken en hoe meer deze staalnames geanalyseerd worden, hoe betrouwbaarder de resultaten maar ook hoe hoger de kosten.
+	
+Dit analyseplan wordt opgebroken in vijf opbouwende stappen:
+	
 \begin{itemize}
-	\item Het kwantificeren van de verschillende variantiecomponenten
-	(maand-tot-maand variatie versus laboratoriumvariatie);
-	\item Het bepalen van de minimale meetfrequentie die vereist is om
-	overschrijdingen met voldoende statistische zekerheid te detecteren;
-	\item Het formuleren van een modelgebaseerde evaluatiemethode
-	voor jaarlijkse kwaliteitsbeoordeling.
+	\item Eerst worden verschillende variantiecomponenten gekwantificeerd
+	(maand-tot-maand variatie versus laboratoriumvariatie) waardoor we kunnen bepalen of we voor bepaalde parameters meer metingen moeten uitvoeren en voor andere minder metingen;
+	\item Ten tweede worden de data geanalyseerd als tijdsreeksen om tijdscomponenten in kaart te brengen, inclusief autocorrelatie en seizoenseffecten;
+	\item Ten derde kijken we naar de samenhang tussen parameters. Wanneer bepaalde parameters sterk samenhangen kan de meting van bepaalde parameters verminderd worden omdat andere parameters al informatie bevatten;
+	\item Ten vierde worden nieuwe metingen modelgebaseerd geëvalueerd tegen grenswaarden;
+	\item Ten vijfde wordt adaptieve monitoring toegepast om het meetplan dynamisch bij te sturen gedurende het jaar.
 \end{itemize}
-%
-%\subsection{Datastructuur}
-%
-%Voor elke parameter geldt:
-%
-%\begin{itemize}
-%	\item Maandelijkse bemonstering ($m = 1,\dots,12$);
-%	\item Laboratoriumanalyse in duplo ($r = 1,2$);
-%	\item Waarneming $Y_{m,r}$.
-%\end{itemize}
-%
-%Voor elke parameter wordt een wettelijke grenswaarde $T$ gedefinieerd.
+	
+In de onderstaande uitwerking gaan we ervan uit dat de microdata over elke individuele staalname en parametertest toegankelijk is. Het bijgeleverde bestand case1.csv bevat enkel informatie op geaggregeerd niveau, waardoor sommige beschreven analyses minder accuraat of zelfs niet uitvoerbaar zijn.
 
 
 
 
 
+	
+\section{Stap 1: Analyse van testvariatie}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\section{Stap 1: Waar komt de variatie vandaan?}
-
-%Resultaat van een test op staalname = De echte waarde in maand $m$ + een willekeurige fout door steekproeftrekking van de staalname + willekeurige fout door test in lab
-%
-%
-%We berekenen voor elke parameter de Intraclass Correlation Coefficient (ICC)
-
-
-Elke maand wordt een staal genomen uit de waterplas.
-Dat staal wordt in het labo twee keer geanalyseerd (duplo-analyse).
-
-Wanneer we verschillen zien tussen metingen,
+Elke maand wordt een staal genomen uit de waterplas. Dat staal wordt in het labo twee keer geanalyseerd (duplo-analyse). Wanneer we verschillen zien tussen metingen,
 kunnen die uit verschillende bronnen komen:
 
 \begin{itemize}
-	\item Echte verschillen tussen maanden (bijvoorbeeld door weersomstandigheden of biologische processen);
+	\item Echte verschillen tussen maanden, bijvoorbeeld door weersomstandigheden of biologische processen die zorgen voor een verbeterende of verslechterende waterkwaliteit;
 	\item Kleine verschillen die ontstaan bij het nemen van het staal (bemonsteringsvariatie);
 	\item Meetonnauwkeurigheid in het labo (laboratoriumvariatie).
 \end{itemize}
 
-Met andere woorden: niet elk verschil in meetresultaat betekent
-dat de waterkwaliteit echt veranderd is.
-Een deel van de variatie is simpelweg toe te schrijven aan toeval
+Met andere woorden, niet elk verschil in meetresultaat betekent dat de waterkwaliteit echt veranderd is. Een deel van de variatie is simpelweg toe te schrijven aan toeval
 bij staalname of analyse.
 
-In deze stap onderzoeken we hoeveel van de totale variatie
-wordt veroorzaakt door:
+In deze stap onderzoeken we hoeveel van de totale variatie wordt veroorzaakt door de laboratoriumvariatie. Daarvoor berekenen we de zogenaamde Intraclass Correlation Coefficient (ICC). Dit geeft aan welk deel van de totale variatie toe te schrijven is aan echte verschillen tussen de maanden (inclusief natuurlijke variatie en staalnamevariatie) en hoeveel aan verschillen tussen de verschillende testen. Omdat slechts één staal per maand wordt genomen, kunnen natuurlijke maandvariatie en staalnamevariatie niet afzonderlijk worden onderscheiden. Beide worden daarom in deze stap samen geïnterpreteerd als variatie tussen meetmomenten.
 
 \begin{itemize}
-	\item Echte verschillen tussen maanden;
-	\item Willekeurige meetfouten (staalname + labo).
-\end{itemize}
-
-Daarvoor berekenen we de zogenaamde
-\textbf{Intraclass Correlation Coefficient (ICC)}.
-
-De ICC geeft aan welk deel van de totale variatie
-toe te schrijven is aan echte verschillen tussen maanden.
-
-\begin{itemize}
-	\item Als de ICC hoog is (bijvoorbeeld hoger dan 0.80),
-	betekent dit dat bijna alle variatie echte maandverschillen weerspiegelt.
-	De bijdrage van meetfouten is dan beperkt,
-	en duplo-analyses voegen weinig extra informatie toe.
+	\item Als de ICC hoog is (bijvoorbeeld hoger dan 0.80), betekent dit dat bijna alle variatie echte verschillen weerspiegelt tussen de meetstalen (zie Figuur \ref{fig:ICC1}). De bijdrage van meetfouten door de testen is dan beperkt, en duplo-analyses voegen weinig extra informatie toe.
 	
-	\item Als de ICC laag is (bijvoorbeeld lager dan 0.50),
-	betekent dit dat een groot deel van de variatie
-	afkomstig is van staalname- of labo-onzekerheid.
-	In dat geval zijn duplo-analyses belangrijk om betrouwbare resultaten te verkrijgen.
+	\item Als de ICC laag is (bijvoorbeeld lager dan 0.50), betekent dit dat een groot deel van de variatie afkomstig is van labo-onzekerheid (zie Figuur \ref{fig:ICC2}). In dat geval zijn duplo-analyses belangrijk om betrouwbare resultaten te verkrijgen. Het kan zelfs aangeraden zijn om het aantal analyses op te voeren per meetstaal.
 \end{itemize}
 
-Deze analyse laat toe om objectief te beoordelen
-of dubbele labo-analyses noodzakelijk zijn,
-of dat dezelfde betrouwbaarheid kan worden bereikt
-met minder metingen en dus lagere kosten.
-
-
-
-
-
-
-
-
-
-
-\section{Stap 2: Zijn er seizoenseffecten?}
-
-Waterkwaliteit kan verschillen tussen winter en zomer.
-Daarom onderzoeken we of bepaalde maanden systematisch hogere of lagere waarden vertonen.
-
-Indien blijkt dat:
-
+Om de ICC te schatten wordt voor elke parameter een eenvoudig lineair mixed effects model met random maandeffecten. De variantie van de maandeffecten geven de echte variatie tussen de meetstalen weer, terwijl de variantie van de residuelen de variatie weergeeft ontstaan uit de testen. Dit model laat toe om objectief te beoordelen of dubbele labo-analyses noodzakelijk zijn of uitgebreid mogen worden. Het model zorgt ervoor dat  
 \begin{itemize}
-	\item Sommige maanden duidelijk risicovoller zijn dan andere,
+	\item een geobserveerde stijging of daling tussen de metingen van twee opvolgende maanden met grotere betrouwbaarheid kunnen worden geschat. De standaardfouten van zo'n stijging of daling kan accurater worden geschat.
+	\item een acuratere kans kunnen berekenen dat een overschrijding van drempelwaardes kan worden toegeschreven aan willekeurige fluctuaties in de meetresultaten of aan een echte overschrijding. 
 \end{itemize}
+Via een poweranalyse kan bovendien het ideale aantal metingen worden vastgesteld zodat een overschrijving van de grenswaarde met een bepaalde zekerheid kan worden vastgesteld. 
 
-dan kan het meetplan worden aangepast, bijvoorbeeld:
+\begin{figure}
+	\caption{Testresultaten met relatief hoge variatie tussen labotesten en dus lage ICC.}
+	\label{fig:ICC1}
+	\includegraphics[page=1]{graphs/ICC.pdf}
+\end{figure}
 
+\begin{figure}
+	\caption{Testresultaten met relatief lage variatie tussen labotesten en dus hoge ICC.}
+	\label{fig:ICC2}
+	\includegraphics[page=2]{graphs/ICC.pdf}
+\end{figure}
+
+
+
+
+
+\section{Stap 2: Analyse van seizoenseffecten en autocorrelatie}
+
+De geschatte maandeffecten in stap 1 kunnen worden vertaald naar seizoenspatronen. Die uiten zich als gelijkaardige waarden in dezelfde maand van opeenvolgende jaren. Indien blijkt dat sommige maanden duidelijk risicovoller zijn dan andere, kan het meetplan worden aangepast. Resultaten kunnen bijvoorbeeld tonen dat we beter vaker meten in de zomer en minder frequent in stabiele wintermaanden. Zo optimaliseren we de inspanningen waar het risico het grootst is en kunnen we vroegtijdig trends en verslechtering signaleren.
+
+Bovendien vormen waterkwaliteitsmetingen een tijdreeks. De metingen volgen elkaar op in de tijd en zijn daardoor niet onafhankelijk. In de praktijk betekent dit dat de waarde in een bepaalde maand vaak samenhangt met de waarde in de maand ervoor. Bijvoorbeeld, als het zuurstofgehalte in juni hoog is, is de kans groot dat het in juli ook relatief hoog blijft. Dit fenomeen noemen we \emph{autocorrelatie}, de mate waarin een meting lijkt op eerdere metingen. Wanneer autocorrelatie aanwezig is, betekent dit dat de waterkwaliteit een zekere ``traagheid'' vertoont. Dit is typisch voor milieudata. Seizoenspatronen kunnen zich bovendien tonen als een specifiek type autocorrelatie. Gelijkenis tussen dezelfde maanden in opeenvolgende jaren wijst op een terugkerend seizoenspatroon. Dit wordt geïllustreerd door figuren \ref{fig:AR1} en \ref{fig:AR2} waarin duidelijke seizoenseffecten waarneembaar zijn. 
+
+Autocorrelatie kunnen we analyseren op twee manieren. Enerzijds kunnen we covariantie toelaten in het model tussen de residuelen ten op zichte van het algemeen gemiddelde. Zo'n varianties kunnen heel flexibel worden gemodelleerd, bijvoorbeeld door hoge covarianties toe te laten tussen metingen van opéénvolgende maanden terwijl metingen met grotere tijdsintervallen zwak of niet gecorreleerd zijn. Anderzijds kunnen we ook covariantie toelaten tussen de random maandeffecten waardoor de focus verschuift van het algemeen gemiddelde naar de maandgemiddelden. Opnieuw kunnen op een flexibele manier covarianties tussen deze maandeffecten worden gemodelleerd. 
+
+Door autocorrelatie te analyseren, kunnen we opnieuw het onderzoeksdesign optimaliseren. Als er sterke autocorrelatie aanwezig is, bevat elke meting gedeeltelijk informatie over de volgende meting, en kan daardoor een lagere meetfrequentie soms volstaan zonder veel informatieverlies. Tegelijkertijd betekent dit echter ook dat metingen minder betrouwbaar zijn omdat er minder informatie in de data vervat zit. Als er weinig autocorrelatie aanwezig is fluctueert de waterkwaliteit sneller en minder voorspelbaar en is frequenter meten aangewezen.
+
+Het modelleren van autocorrelatie leidt tot correctere onzekerheidsinschattingen en daardoor tot beter onderbouwde beslissingen over meetfrequentie. Via een poweranalyse kan opnieuw het ideale aantal metingen worden vastgesteld in verschillende maanden doorheen het jaar. 
+	
+\begin{figure}
+	\caption{Testresultaten met hoge autocorrelatie. Elk resultaat lijkt sterk op het vorig gemeten resultaat.}
+	\label{fig:AR1}
+	\includegraphics[page=1]{graphs/AR.pdf}
+\end{figure}
+
+\begin{figure}
+	\caption{Testresultaten met lage autocorrelatie. Een resultaat kan moeilijk voorspeld worden op basis van het vorige resultaat.}
+	\label{fig:AR2}
+	\includegraphics[page=2]{graphs/AR.pdf}
+\end{figure}
+
+
+	
+
+	
+
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+\section{Stap 3: Samenhang tussen waterkwaliteitsparameters}
+	
+Verschillende waterkwaliteitsparameters hangen vaak (sterk) samen. Figuur \ref{fig:corr} toont bijvoorbeeld een sterke relatie tussen de pH-waarde en de zuurstofverzadiging. Dit betekent dat metingen van de ene parameter informatie bevatten over de andere parameter. Zo'n sterke en stabiele correlaties kunnen benut worden om duurdere parameters minder frequent te meten maar te schatten op basis van goedkopere parameters. Anderzijds kan correlatie tussen parameters gebruikt worden om betrouwbaardere schattingen te krijgen van waterkwaliteit omdat de samenhang zorgt voor een hogere statistische power.
+
+\begin{figure}
+	\caption{Er is een correlatie tussen de pH-waarde en de zuurstofverzadiging.}
+	\label{fig:corr}
+	\includegraphics[page=1]{graphs/corr.pdf}
+\end{figure}
+	
+Correlaties tussen parameters kunnen gemodelleerd worden met regressiemodellen voor multivariate uitkomsten. De resultaten van deze modellen kunnen opnieuw gebruikt worden om het onderzoeksdesign te optimaliseren. Bijvoorbeeld, goedkope parameters kunnen maandelijks worden geregistreerd terwijl duurdere parameters minder frequent (bv. per kwartaal) worden geregistreerd. In dit scenario moet er wel een jaarlijkse controle blijven van correlatiestabiliteit.	Indien blijkt dat de parameters minder sterk samenhangen dan verwacht, kan tijdelijk opnieuw een hogere meetfrequentie worden ingevoerd.
+	
+	
+	
+	
+	
+\section{Stap 4: Modelgebaseerde evaluatie van nieuwe data}
+		
+De bovenstaande stappen worden gebruikt om aan datamodel te schatten op basis van historische data waarin rekening wordt gehouden met variabiliteit en tijdsstructuur. Dit model kan vervolgens gebruikt worden om de betrouwbaarheid van nieuwe observaties in een waterplas te evalueren gegeven het tijdstip van die meting. Nieuwe metingen kunnen immers de grenswaarden overschrijden door toevallige schommelingen tijdens staalname en labo-analyse. Als de overschrijding niet statistisch significant is, kan niet met zekerheid een overschrijding worden geconcludeerd en is voorzichtigheid geboden. 
+
+Zo'n evaluatie gebeurt door predictie-intervallen te schatten. Zo'n predictie-interval geeft het statistisch bereik waarin je met een bepaalde zekerheid verwacht dat een toekomstige observatie zal vallen. Hierdoor kwantificeert het de onzerkerheid van nieuwe metingen. Wanneer nieuwe observaties buiten de predictie-intervallen vallen is dat een signaal voor mogelijkse veranderingen in waterkwaliteit. Dit geldt ook voor observaties die de grenswaarden niet overschrijven en periodes waarin grenswaarden doorgaans niet overschreden worden. 
+
+
+
+
+
+	
+\section{Stap 5: Adaptieve monitoring}
+	
+Het meetplan hoeft niet volledig vast te liggen. We kunnen er ook voor kiezen om het plan doorheen het jaar dynamisch aan te passen op basis van vooraf bepaalde criteria of waarschuwingssignalen. Mogelijk signalen zijn bijvoorbeeld
 \begin{itemize}
-	\item Vaker meten in de zomer;
-	\item Minder frequent meten in stabiele wintermaanden.
+	\item een significante stijgende of dalende trend in een parameter,
+	\item abnormale afwijkingen ten opzichte van historische patronen,
+	\item een meting dicht bij een grenswaarde, of
+	\item een kans op overschrijding boven een drempel (bv. $P > 0.30$).	
 \end{itemize}
-
-Zo richten we de inspanningen waar het risico het grootst is.
-
-\subsection{Stap 3: Jaarlijkse beoordeling op basis van het geheel}
-
-Momenteel wordt vaak per maand gekeken of een grenswaarde wordt overschreden.
-Dat kan leiden tot sterke schommelingen in beoordeling.
-
-In plaats daarvan bekijken we het volledige jaar in samenhang.
-We schatten het gemiddelde niveau van de parameter over het hele jaar,
-rekening houdend met seizoenseffecten.
-
-Daarna beoordelen we:
-
+	
+In dit soort situaties kunnen verschillende beslissingen worden genomen zoals 	
 \begin{itemize}
-	\item Ligt het geschatte jaargemiddelde duidelijk boven de wettelijke grens?
+	\item een tijdelijke verhoogde meetfrequentie;
+	\item extra duplo-analyses indien laboratoriumvariatie hoog blijkt;
+	\item bijkomende metingen van sterk gecorreleerde parameters;
 \end{itemize}
+Wanneer metingen stabiliseren, wordt het meetplan teruggebracht naar het basisniveau, volgens vooraf vastgelegde beslisregels.
 
-Pas wanneer we met voldoende zekerheid kunnen zeggen
-dat het gemiddelde boven de grens ligt,
-spreken we van een overschrijding.
+	
+	
+	
 
-Dit voorkomt dat één toevallige piek meteen tot een negatieve beoordeling leidt.
 
-\subsection{Stap 4: Hoe vaak moeten we meten?}
 
-Meer metingen geven meer zekerheid,
-maar kosten ook meer geld.
 
-We berekenen daarom hoeveel metingen nodig zijn
-om een relevante overschrijding met voldoende zekerheid te kunnen vaststellen.
 
-We vergelijken verschillende scenario’s:
+	
+	
+	
+\section{Referenties}
+	
+\begin{description}
+	\item Gilbert, R. O. (1987). \textit{Statistical methods for environmental pollution monitoring}. John Wiley \& Sons.
+	\item Helsel, D. R., \& Hirsch, R. M. (1993). \textit{Statistical methods in water resources} (Vol. 49). Elsevier.
+	\item Helsel, D. R. (2011). \textit{Statistics for censored environmental data using Minitab and R} (Vol. 77). John Wiley \& Sons.
+	\item Zuur, A. F., Ieno, E. N., Walker, N. J., Saveliev, A. A., \& Smith, G. M. (2009). \textit{Mixed effects models and extensions in ecology with R}. New York: springer.
+	\item Lindenmayer, D. B., \& Likens, G. E. (2009). Adaptive monitoring: a new paradigm for long-term research and monitoring. \textit{Trends in ecology \& evolution}, 24(9), 482-486.
+	\item Shumway, R. H., \& Stoffer, D. S. (2006). \textit{Time series analysis and its applications: with R examples.} New York, NY: Springer New York.
+\end{description}
+	
+	
 
-\begin{itemize}
-	\item 12 maanden met telkens 2 labo-analyses (huidige situatie);
-	\item 12 maanden met 1 analyse;
-	\item 8 maanden met 1 analyse;
-	\item Seizoensgericht meten.
-\end{itemize}
 
-Voor elk scenario bekijken we:
-
-\begin{itemize}
-	\item Hoe zeker is de beoordeling?
-	\item Hoe groot is de kans dat we een echte overschrijding missen?
-	\item Wat is de totale kost?
-\end{itemize}
-
-Zo zoeken we het beste evenwicht tussen betrouwbaarheid en kostenefficiëntie.
-
-\subsection{Stap 5: Flexibel opvolgen tijdens het jaar}
-
-Het meetplan hoeft niet volledig vast te liggen.
-
-Indien tijdens het jaar blijkt dat:
-
-\begin{itemize}
-	\item De waarden sterk stijgen;
-	\item Of we dicht bij een grenswaarde komen;
-\end{itemize}
-
-dan kan tijdelijk vaker worden gemeten.
-
-Wanneer de situatie opnieuw stabiel is,
-kan men terugkeren naar het standaardmeetplan.
-
-Dit noemen we adaptieve monitoring:
-we meten intensiever wanneer dat nodig is.
-
-\subsection{Beslissingscriteria}
-
-Een aangepast meetplan wordt enkel ingevoerd indien:
-
-\begin{itemize}
-	\item De betrouwbaarheid van de beoordeling nauwelijks daalt;
-	\item De kans om een echte overschrijding te missen beperkt blijft;
-	\item De kosten duidelijk verminderen.
-\end{itemize}
-
-\subsection{Rapportering}
-
-Voor elke parameter wordt gerapporteerd:
-
-\begin{itemize}
-	\item Hoe groot de natuurlijke maandelijkse schommelingen zijn;
-	\item Hoe groot de meetonnauwkeurigheid van het labo is;
-	\item Of er duidelijke seizoenseffecten zijn;
-	\item Het geschatte jaargemiddelde met aanduiding van onzekerheid;
-	\item De vergelijking tussen de verschillende meetscenario’s;
-	\item Het aanbevolen meetplan.
-\end{itemize}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\section{Stap 3: Rekening houden met samenhang tussen waterkwaliteitsparameters}
-
-\subsection{Waarom is dit belangrijk?}
-
-In de huidige aanpak wordt elke waterkwaliteitsparameter afzonderlijk
-gemeten en beoordeeld. In werkelijkheid hangen verschillende
-waterkwaliteitsparameters echter sterk met elkaar samen.
-
-Bijvoorbeeld:
-
-\begin{itemize}
-	\item Nutriëntenconcentraties hangen vaak samen met algenbloei;
-	\item Zuurstofgehalte hangt samen met biologische activiteit;
-	\item Troebelheid kan samenhangen met fosfaat- of stikstofgehalte.
-\end{itemize}
-
-Wanneer twee parameters sterk samen bewegen in de tijd,
-bevat de ene parameter gedeeltelijk informatie over de andere.
-Dit biedt mogelijkheden om het onderzoeksdesign efficiënter te maken.
-
-\subsection{Het kernidee}
-
-Stel:
-
-\begin{itemize}
-	\item Parameter A is goedkoop om te meten;
-	\item Parameter B is duur om te analyseren;
-	\item A en B vertonen een sterke en stabiele samenhang.
-\end{itemize}
-
-In dat geval kan men:
-
-\begin{itemize}
-	\item Parameter A maandelijks meten;
-	\item Parameter B minder frequent meten (bv. per kwartaal);
-	\item De tussentijdse waarden van B inschatten op basis van A.
-\end{itemize}
-
-Hierdoor dalen de analysekosten,
-terwijl de informatie over de waterkwaliteit grotendeels behouden blijft.
-
-\subsection{Hoe bepalen we of dit mogelijk is?}
-
-Op basis van historische gegevens wordt nagegaan:
-
-\begin{enumerate}
-	\item Bewegen bepaalde parameters systematisch samen?
-	\item Is deze samenhang stabiel doorheen het jaar?
-	\item Hoe goed kan de ene parameter voorspeld worden op basis van de andere?
-\end{enumerate}
-
-Wanneer hoge waarden van de ene parameter bijna altijd samengaan
-met hoge waarden van een andere parameter (en lage waarden eveneens),
-spreken we van een sterke samenhang.
-
-Indien deze relatie voldoende stabiel is,
-kan een deel van de informatie van de dure parameter
-worden afgeleid uit de goedkopere parameter.
-
-\subsection{Wat betekent dit concreet voor het meetdesign?}
-
-In plaats van alle parameters maandelijks te meten,
-kan het meetplan worden aangepast, bijvoorbeeld:
-
-\begin{itemize}
-	\item Goedkope parameters: maandelijkse meting;
-	\item Dure parameters: meting per kwartaal;
-	\item Jaarlijkse controle of de onderlinge samenhang stabiel blijft.
-\end{itemize}
-
-\subsection{Voorwaarden en waarborgen}
-
-Een reductie van meetfrequentie is enkel verantwoord indien:
-
-\begin{itemize}
-	\item De samenhang tussen parameters sterk en stabiel is;
-	\item De kans op een foutieve beoordeling van de waterkwaliteit
-	beperkt blijft;
-	\item Het model jaarlijks wordt geëvalueerd en indien nodig bijgestuurd.
-\end{itemize}
-
-Indien tijdens het jaar blijkt dat de parameters minder sterk samenhangen
-dan verwacht, kan tijdelijk opnieuw een hogere meetfrequentie worden ingevoerd.
-
-\subsection{Voordeel van deze aanpak}
-
-Door gebruik te maken van de samenhang tussen parameters:
-
-\begin{itemize}
-	\item Worden middelen efficiënter ingezet;
-	\item Kan het aantal dure labo-analyses worden beperkt;
-	\item Blijft de betrouwbaarheid van de kwaliteitsbeoordeling gewaarborgd.
-\end{itemize}
-
-Deze aanpak combineert kostenefficiëntie met wetenschappelijke onderbouwing.
-
-
-
-
-
-
-
-
-
-
-
-
-%
-%
-%
-%
-%\subsection{Stap 1: Variantiecomponentenanalyse}
-%
-%Om de efficiëntie van duplo-analyses te evalueren,
-%wordt per parameter een lineair mixed model geschat:
-%
-%\begin{equation}
-%Y_{m,r} = \mu + \alpha_m + \varepsilon_{m,r}
-%\end{equation}
-%
-%
-%met:
-%
-%\[
-%\alpha_m \sim \mathcal{N}(0,\sigma^2_{\text{maand}})
-%\]
-%\[
-%\varepsilon_{m,r} \sim \mathcal{N}(0,\sigma^2_{\text{lab}})
-%\]
-%
-%waar:
-%
-%\begin{itemize}
-%	\item $\sigma^2_{\text{maand}}$ = maand-tot-maand variatie
-%	\item $\sigma^2_{\text{lab}}$ = laboratoriumvariatie
-%\end{itemize}
-%
-%De intraclass correlatiecoëfficiënt (ICC) wordt berekend als:
-%
-%\[
-%ICC = \frac{\sigma^2_{\text{maand}}}
-%{\sigma^2_{\text{maand}} + \sigma^2_{\text{lab}}}
-%\]
-%
-%Interpretatie:
-%
-%\begin{itemize}
-%	\item $ICC > 0.80$: beperkte meerwaarde van duplo-analyses
-%	\item $ICC < 0.50$: significante labvariatie, behoud duplo’s aanbevolen
-%\end{itemize}
-%
-%
-%
-%\subsection{Stap 2: Seizoensstructuur}
-%
-%Seizoenseffecten worden onderzocht via:
-%
-%\[
-%Y_m = \mu + \gamma_{s(m)} + \varepsilon_m
-%\]
-%
-%waar $s(m)$ de maand of seizoen aanduidt.
-%
-%Hypothese:
-%
-%\[
-%H_0: \gamma_1 = \gamma_2 = \dots = \gamma_{12}
-%\]
-%
-%Indien significante seizoensstructuur aanwezig is,
-%kan een gedifferentieerd bemonsteringsschema overwogen worden
-%(bv. hogere frequentie in risicomaanden).
-%
-%\subsection{Stap 3: Modelgebaseerde evaluatie van grenswaarde}
-%
-%In plaats van maandelijkse puntvergelijkingen,
-%wordt een modelgebaseerde schatting van het jaargemiddelde $\mu$ gebruikt.
-%
-%Het model:
-%
-%\[
-%Y_t = \mu + s(t) + \varepsilon_t
-%\]
-%
-%met $s(t)$ een seizoenscomponent.
-%
-%De evaluatie gebeurt via:
-%
-%\[
-%H_0: \mu \leq T
-%\quad \text{vs} \quad
-%H_1: \mu > T
-%\]
-%
-%Beslissingsregel:
-%
-%Overschrijding wordt vastgesteld indien de ondergrens
-%van het $(1-\alpha)$ betrouwbaarheidsinterval voor $\mu$
-%boven $T$ ligt.
-%
-%\subsection{Stap 4: Power-analyse en optimalisatie meetfrequentie}
-%
-%De vereiste steekproefomvang (aantal maanden $n$)
-%om een relevante overschrijding $\delta$ te detecteren
-%met significantieniveau $\alpha$ en power $1-\beta$ wordt benaderd via:
-%
-%\[
-%n =
-%\frac{(z_{1-\alpha} + z_{1-\beta})^2 \sigma^2}
-%{\delta^2}
-%\]
-%
-%waar:
-%
-%\begin{itemize}
-%	\item $\sigma^2$ = geschatte maandvariatie
-%	\item $\delta$ = minimaal relevante afwijking t.o.v. $T$
-%\end{itemize}
-%
-%Scenario-analyse wordt uitgevoerd voor:
-%
-%\begin{itemize}
-%	\item 12 maanden × 2 analyses (huidig design)
-%	\item 12 maanden × 1 analyse
-%	\item 8 maanden × 1 analyse
-%	\item Seizoensgericht design
-%\end{itemize}
-%
-%Voor elk scenario worden berekend:
-%
-%\begin{itemize}
-%	\item Standaardfout van $\hat{\mu}$
-%	\item Power om $\delta$ te detecteren
-%	\item Totale analysekost
-%\end{itemize}
-%
-%\subsection{Stap 5: Adaptieve monitoring}
-%
-%Indien tijdens het lopende jaar:
-%
-%\begin{itemize}
-%	\item Een significante positieve trend wordt vastgesteld;
-%	\item Of de geschatte kans op overschrijding
-%	$P(\mu > T)$ groter is dan een vooraf bepaalde drempel (bv. 0.30);
-%\end{itemize}
-%
-%kan tijdelijk een verhoogde meetfrequentie worden ingevoerd.
-%
-%\subsection{Beslissingscriteria voor optimalisatie}
-%
-%Een alternatief design wordt weerhouden indien:
-%
-%\begin{enumerate}
-%	\item De power om relevante overschrijdingen te detecteren
-%	niet meer dan 5\% daalt t.o.v. het huidige design;
-%	\item De standaardfout van het jaargemiddelde
-%	minder dan 10\% toeneemt;
-%	\item De totale analysekost significant gereduceerd wordt.
-%\end{enumerate}
-%
-%\subsection{Rapportering}
-%
-%Voor elke parameter worden gerapporteerd:
-%
-%\begin{itemize}
-%	\item Geschatte variantiecomponenten;
-%	\item ICC;
-%	\item Seizoenseffecten;
-%	\item Geschat jaargemiddelde met betrouwbaarheidsinterval;
-%	\item Power per scenario;
-%	\item Aanbevolen onderzoeksdesign.
-%\end{itemize}
 
 
 
