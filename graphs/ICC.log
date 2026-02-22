@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2026.2.1)  20 FEB 2026 12:21
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2026.2.1)  22 FEB 2026 12:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -612,6 +612,63 @@ Package: titlesec 2021/07/05 v2.14 Sectioning titles
 \titlewidth=\dimen260
 \titlewidthlast=\dimen261
 \titlewidthfirst=\dimen262
+)
+(/usr/share/texlive/texmf-dist/tex/latex/floatrow/floatrow.sty
+Package: floatrow 2008/08/02 v0.3b floatrow: float package extension
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
+\captionmargin=\dimen263
+\captionmargin@=\dimen264
+\captionwidth=\dimen265
+\caption@tempdima=\dimen266
+\caption@indent=\dimen267
+\caption@parindent=\dimen268
+\caption@hangindent=\dimen269
+Package caption Info: Standard document class detected.
+)
+\c@float@type=\count300
+\float@exts=\toks32
+\float@box=\box63
+\@floatcapt=\box64
+Package floatrow Info: Modified float package code loaded on input line 455.
+Package floatrow Info: Modified rotfloat package code loaded on input line 473.
+
+\FR@everyfloat=\toks33
+\flrow@foot=\insert252
+\FB@wd=\dimen270
+\FBo@wd=\dimen271
+\FBc@wd=\dimen272
+\FBo@ht=\skip60
+\FBc@ht=\skip61
+\FBf@ht=\skip62
+\FBo@max=\skip63
+\FBc@max=\skip64
+\FBf@max=\skip65
+\c@FBl@b=\count301
+\floatbox@depth=\count302
+\c@FRobj=\count303
+\c@FRsobj=\count304
+\Xhsize=\skip66
+\sXhsize=\skip67
+\Zhsize=\skip68
+\sZhsize=\skip69
+\flrow@rowbox=\box65
+\FR@Zunitlength=\dimen273
+\c@FBcnt=\count305
+\FPOScnt=\count306
+\LTleft=\skip70
+\LTright=\skip71
+\LTleft=\skip72
+\LTright=\skip73
+\flrow@types=\toks34
+)
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2020/10/26 v3.5g Customizing captions (AR)
+\c@caption@flags=\count307
+\c@continuedfloat=\count308
+Package caption Info: float package is loaded.
+Package caption Info: floatrow package is loaded.
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2021-06-07 v7.00m Hypertext links for LaTeX
@@ -642,9 +699,9 @@ Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
 (/usr/share/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 )
-\@linkdim=\dimen263
-\Hy@linkcounter=\count300
-\Hy@pagecounter=\count301
+\@linkdim=\dimen274
+\Hy@linkcounter=\count309
+\Hy@pagecounter=\count310
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2021-06-07 v7.00m Hyperref: PDFDocEncoding definition (HO)
@@ -659,7 +716,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count302
+\Hy@SavedSpaceFactor=\count311
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2021-06-07 v7.00m Hyperref: PDF Unicode definition (HO)
@@ -671,14 +728,14 @@ Package hyperref Info: Plain pages OFF on input line 4207.
 Package hyperref Info: Backreferencing OFF on input line 4212.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4445.
-\c@Hy@tempcnt=\count303
+\c@Hy@tempcnt=\count312
 
 (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip16
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4804.
-\XeTeXLinkMargin=\dimen264
+\XeTeXLinkMargin=\dimen275
 Requested font "pzdr" at 0.00002pt
  -> /usr/share/texlive/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm
 
@@ -689,9 +746,9 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count304
-\Field@Width=\dimen265
-\Fld@charsize=\dimen266
+\Fld@menulength=\count313
+\Field@Width=\dimen276
+\Fld@charsize=\dimen277
 Package hyperref Info: Hyper figures OFF on input line 6076.
 Package hyperref Info: Link nesting OFF on input line 6081.
 Package hyperref Info: Hyper index ON on input line 6084.
@@ -706,9 +763,9 @@ LaTeX Info: Redefining \pageref on input line 6150.
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count305
-\c@Item=\count306
-\c@Hfootnote=\count307
+\Hy@abspage=\count314
+\c@Item=\count315
+\c@Hfootnote=\count316
 )
 Package hyperref Info: Driver (autodetected): hxetex.
 
@@ -719,11 +776,11 @@ File: hxetex.def 2021-06-07 v7.00m Hyperref driver for XeTeX
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 )
 )
-\pdfm@box=\box63
-\c@Hy@AnnotLevel=\count308
-\HyField@AnnotCount=\count309
-\Fld@listcount=\count310
-\c@bookmark@seq@number=\count311
+\pdfm@box=\box66
+\c@Hy@AnnotLevel=\count317
+\HyField@AnnotCount=\count318
+\Fld@listcount=\count319
+\c@bookmark@seq@number=\count320
 
 (/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
@@ -739,100 +796,100 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 86.
 )
-\Hy@SectionHShift=\skip60
+\Hy@SectionHShift=\skip74
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tabularray/tabularray.sty
 Package: tabularray 2021-12-01 v2021Q Typeset tabulars and arrays with LaTeX3
-\l__tblr_a_int=\count312
-\l__tblr_c_int=\count313
-\l__tblr_r_int=\count314
-\l__tblr_d_dim=\dimen267
-\l__tblr_h_dim=\dimen268
-\l__tblr_o_dim=\dimen269
-\l__tblr_p_dim=\dimen270
-\l__tblr_q_dim=\dimen271
-\l__tblr_r_dim=\dimen272
-\l__tblr_s_dim=\dimen273
-\l__tblr_t_dim=\dimen274
-\l__tblr_v_dim=\dimen275
-\l__tblr_w_dim=\dimen276
-\l__tblr_a_box=\box64
-\l__tblr_b_box=\box65
-\l__tblr_c_box=\box66
-\l__tblr_d_box=\box67
-\g__tblr_table_count_int=\count315
-\c@rownum=\count316
-\c@colnum=\count317
-\c@rowcount=\count318
-\c@colcount=\count319
-\abovesep=\dimen277
-\belowsep=\dimen278
-\leftsep=\dimen279
-\rightsep=\dimen280
-\g_tblr_level_int=\count320
-\g__tblr_data_row_key_count_int=\count321
-\g__tblr_data_column_key_count_int=\count322
-\g__tblr_data_cell_key_count_int=\count323
-\g__tblr_array_int=\count324
-\l__tblr_key_count_int=\count325
-\l__tblr_key_quotient_int=\count326
-\l__tblr_key_quotient_two_int=\count327
-\l__tblr_key_remainder_int=\count328
-\g__tblr_data_str_value_count_int=\count329
-\rulewidth=\dimen281
-\l__multicolumn_cell_number_int=\count330
-\l__tblr_strut_ht_box=\box68
-\l__tblr_strut_dp_box=\box69
-\g__tblr_cell_wd_dim=\dimen282
-\g__tblr_cell_ht_dim=\dimen283
-\g__tblr_cell_head_dim=\dimen284
-\g__tblr_cell_foot_dim=\dimen285
-\l__column_target_dim=\dimen286
-\l__tblr_caption_box=\box70
-\l__tblr_caption_left_box=\box71
-\l__tblr_row_head_box=\box72
-\l__tblr_row_foot_box=\box73
-\l__tblr_row_head_foot_dim=\dimen287
-\tablewidth=\dimen288
-\l__tblr_table_firsthead_box=\box74
-\l__tblr_table_middlehead_box=\box75
-\l__tblr_table_lasthead_box=\box76
-\l__tblr_table_firstfoot_box=\box77
-\l__tblr_table_middlefoot_box=\box78
-\l__tblr_table_lastfoot_box=\box79
-\l__tblr_remain_height_dim=\dimen289
-\l__tblr_long_from_int=\count331
-\l__tblr_long_to_int=\count332
-\l__tblr_curr_i_int=\count333
-\l__tblr_prev_i_int=\count334
-\l__tblr_table_page_int=\count335
-\l__tblr_table_head_box=\box80
-\l__tblr_table_foot_box=\box81
-\l__tblr_table_head_foot_dim=\dimen290
-\l__tblr_table_head_body_foot_dim=\dimen291
-\l__tblr_table_box=\box82
-\l__tblr_table_hlines_box=\box83
-\l__tblr_hline_box=\box84
-\l__tblr_row_box=\box85
-\l__tblr_col_o_wd_dim=\dimen292
-\l__tblr_col_b_wd_dim=\dimen293
-\l__tblr_hline_leftskip_dim=\dimen294
-\l__tblr_hline_rightskip_dim=\dimen295
-\l__tblr_row_ht_dim=\dimen296
-\l__tblr_row_dp_dim=\dimen297
-\l__tblr_row_abovesep_dim=\dimen298
-\l__tblr_row_belowsep_dim=\dimen299
-\l__tblr_row_vlines_box=\box86
-\l__tblr_vline_box=\box87
-\l__tblr_cell_box=\box88
-\l__row_upper_dim=\dimen300
-\l__row_lower_dim=\dimen301
-\l__row_vpace_dim=\dimen302
-\l__tblr_vline_aboveskip_dim=\dimen303
-\l__tblr_vline_belowskip_dim=\dimen304
-\l__tblr_cell_wd_dim=\dimen305
-\l__tblr_cell_ht_dim=\dimen306
-\l__tblr_diag_box=\box89
+\l__tblr_a_int=\count321
+\l__tblr_c_int=\count322
+\l__tblr_r_int=\count323
+\l__tblr_d_dim=\dimen278
+\l__tblr_h_dim=\dimen279
+\l__tblr_o_dim=\dimen280
+\l__tblr_p_dim=\dimen281
+\l__tblr_q_dim=\dimen282
+\l__tblr_r_dim=\dimen283
+\l__tblr_s_dim=\dimen284
+\l__tblr_t_dim=\dimen285
+\l__tblr_v_dim=\dimen286
+\l__tblr_w_dim=\dimen287
+\l__tblr_a_box=\box67
+\l__tblr_b_box=\box68
+\l__tblr_c_box=\box69
+\l__tblr_d_box=\box70
+\g__tblr_table_count_int=\count324
+\c@rownum=\count325
+\c@colnum=\count326
+\c@rowcount=\count327
+\c@colcount=\count328
+\abovesep=\dimen288
+\belowsep=\dimen289
+\leftsep=\dimen290
+\rightsep=\dimen291
+\g_tblr_level_int=\count329
+\g__tblr_data_row_key_count_int=\count330
+\g__tblr_data_column_key_count_int=\count331
+\g__tblr_data_cell_key_count_int=\count332
+\g__tblr_array_int=\count333
+\l__tblr_key_count_int=\count334
+\l__tblr_key_quotient_int=\count335
+\l__tblr_key_quotient_two_int=\count336
+\l__tblr_key_remainder_int=\count337
+\g__tblr_data_str_value_count_int=\count338
+\rulewidth=\dimen292
+\l__multicolumn_cell_number_int=\count339
+\l__tblr_strut_ht_box=\box71
+\l__tblr_strut_dp_box=\box72
+\g__tblr_cell_wd_dim=\dimen293
+\g__tblr_cell_ht_dim=\dimen294
+\g__tblr_cell_head_dim=\dimen295
+\g__tblr_cell_foot_dim=\dimen296
+\l__column_target_dim=\dimen297
+\l__tblr_caption_box=\box73
+\l__tblr_caption_left_box=\box74
+\l__tblr_row_head_box=\box75
+\l__tblr_row_foot_box=\box76
+\l__tblr_row_head_foot_dim=\dimen298
+\tablewidth=\dimen299
+\l__tblr_table_firsthead_box=\box77
+\l__tblr_table_middlehead_box=\box78
+\l__tblr_table_lasthead_box=\box79
+\l__tblr_table_firstfoot_box=\box80
+\l__tblr_table_middlefoot_box=\box81
+\l__tblr_table_lastfoot_box=\box82
+\l__tblr_remain_height_dim=\dimen300
+\l__tblr_long_from_int=\count340
+\l__tblr_long_to_int=\count341
+\l__tblr_curr_i_int=\count342
+\l__tblr_prev_i_int=\count343
+\l__tblr_table_page_int=\count344
+\l__tblr_table_head_box=\box83
+\l__tblr_table_foot_box=\box84
+\l__tblr_table_head_foot_dim=\dimen301
+\l__tblr_table_head_body_foot_dim=\dimen302
+\l__tblr_table_box=\box85
+\l__tblr_table_hlines_box=\box86
+\l__tblr_hline_box=\box87
+\l__tblr_row_box=\box88
+\l__tblr_col_o_wd_dim=\dimen303
+\l__tblr_col_b_wd_dim=\dimen304
+\l__tblr_hline_leftskip_dim=\dimen305
+\l__tblr_hline_rightskip_dim=\dimen306
+\l__tblr_row_ht_dim=\dimen307
+\l__tblr_row_dp_dim=\dimen308
+\l__tblr_row_abovesep_dim=\dimen309
+\l__tblr_row_belowsep_dim=\dimen310
+\l__tblr_row_vlines_box=\box89
+\l__tblr_vline_box=\box90
+\l__tblr_cell_box=\box91
+\l__row_upper_dim=\dimen311
+\l__row_lower_dim=\dimen312
+\l__row_vpace_dim=\dimen313
+\l__tblr_vline_aboveskip_dim=\dimen314
+\l__tblr_vline_belowskip_dim=\dimen315
+\l__tblr_cell_wd_dim=\dimen316
+\l__tblr_cell_ht_dim=\dimen317
+\l__tblr_diag_box=\box92
 )
 (./tikzset.tex) (/usr/share/texmf/tex/latex/preview/preview.sty
 Package: preview 2017/04/24 12.2 (AUCTeX/preview-latex)
@@ -841,11 +898,11 @@ Package: preview 2017/04/24 12.2 (AUCTeX/preview-latex)
 Package: luatex85 2016/06/15 v1.4 pdftex aliases for luatex
 )
 (/usr/share/texmf/tex/latex/preview/prtightpage.def
-\PreviewBorder=\dimen307
+\PreviewBorder=\dimen318
 )
-\pr@snippet=\count336
-\pr@box=\box90
-\pr@output=\toks32
+\pr@snippet=\count345
+\pr@box=\box93
+\pr@output=\toks35
 )
 LaTeX Font Info:    Font shape `TU/ClearSans(0)/m/n' will be
 (Font)              scaled to size 10.95pt on input line 16.
@@ -975,6 +1032,9 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: hyperref package is loaded.
+Package caption Info: End \AtBeginDocument code.
 Package hyperref Info: Link coloring OFF on input line 16.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -985,7 +1045,7 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count337
+\c@section@level=\count346
 )
 LaTeX Info: Redefining \ref on input line 16.
 LaTeX Info: Redefining \pageref on input line 16.
@@ -1001,6 +1061,12 @@ Package: ninecolors 2021/05/24 v2021C Select colors with proper color contrast
 )
 Preview: Fontsize 10.95pt
 Preview: PDFoutput 1
+LaTeX Font Info:    Font shape `TU/ClearSans(0)/m/n' will be
+(Font)              scaled to size 9.0pt on input line 71.
+Requested font "[ClearSans-Regular.ttf]/OT:script=latn;language=dflt;mapping=te
+x-text;" at 9.0pt
+ -> /usr/share/texlive/texmf-dist/fonts/truetype/intel/clearsans/ClearSans-Regu
+lar.ttf
 > Step: init table outer spec.
 > Step: parse table options.
 > Step: split table.
@@ -1015,44 +1081,40 @@ Requested font "cmr10" at 0.00026pt
 > Step: execute table commands.
 > Step: calculate cell and line sizes.
 LaTeX Font Info:    Font shape `TU/ClearSans(0)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 83.
+(Font)              scaled to size 8.0pt on input line 85.
 Requested font "[ClearSans-Regular.ttf]/OT:script=latn;language=dflt;mapping=te
 x-text;" at 8.0pt
  -> /usr/share/texlive/texmf-dist/fonts/truetype/intel/clearsans/ClearSans-Regu
 lar.ttf
 LaTeX Font Info:    Font shape `TU/ClearSans(0)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 83.
+(Font)              scaled to size 6.0pt on input line 85.
 Requested font "[ClearSans-Regular.ttf]/OT:script=latn;language=dflt;mapping=te
 x-text;" at 6.0pt
  -> /usr/share/texlive/texmf-dist/fonts/truetype/intel/clearsans/ClearSans-Regu
 lar.ttf
 > Step: build the whole table.
-Requested font "[lmroman8-regular]:mapping=tex-text;" at 8.0pt
- -> /usr/share/texmf/fonts/opentype/public/lm/lmroman8-regular.otf
+Requested font "[lmroman9-regular]:mapping=tex-text;" at 9.0pt
+ -> /usr/share/texmf/fonts/opentype/public/lm/lmroman9-regular.otf
 Requested font "[lmroman6-regular]:mapping=tex-text;" at 6.0pt
  -> /usr/share/texmf/fonts/opentype/public/lm/lmroman6-regular.otf
-Requested font "cmmi10" at 10.95pt
- -> /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
-Requested font "cmmi8" at 8.0pt
- -> /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
+Requested font "[lmroman5-regular]:mapping=tex-text;" at 5.0pt
+ -> /usr/share/texmf/fonts/opentype/public/lm/lmroman5-regular.otf
+Requested font "cmmi9" at 9.0pt
+ -> /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi9.tfm
 Requested font "cmmi6" at 6.0pt
  -> /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
-Requested font "cmsy10" at 10.95pt
- -> /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
-Requested font "cmsy8" at 8.0pt
- -> /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
+Requested font "cmsy9" at 9.0pt
+ -> /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm
 Requested font "cmsy6" at 6.0pt
  -> /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 83.
+(Font)              <9> on input line 85.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 83.
+(Font)              <6> on input line 85.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 83.
-Requested font "cmr10" at 10.95pt
- -> /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
-Requested font "cmr8" at 8.0pt
- -> /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
+(Font)              <5> on input line 85.
+Requested font "cmr9" at 9.0pt
+ -> /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
 Requested font "cmr6" at 6.0pt
  -> /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
 Preview: Tightpage 0 0 0 0
@@ -1085,12 +1147,12 @@ Package rerunfilecheck Info: File `ICC.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 24697 strings out of 476191
- 520755 string characters out of 5812073
- 877920 words of memory out of 5000000
- 45038 multiletter control sequences out of 15000+600000
- 474506 words of font info for 63 fonts, out of 8000000 for 9000
+ 26470 strings out of 476191
+ 553301 string characters out of 5812073
+ 902824 words of memory out of 5000000
+ 46797 multiletter control sequences out of 15000+600000
+ 473606 words of font info for 62 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 115i,14n,118p,1192b,1087s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 115i,14n,131p,1192b,1184s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on ICC.pdf (2 pages).

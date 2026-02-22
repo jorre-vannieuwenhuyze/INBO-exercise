@@ -30,7 +30,10 @@ bottom=25mm
 ]{geometry}
 
 \RequirePackage{parskip}
-\setlength{\parindent}{0pt}
+\widowpenalty=10000
+\clubpenalty=10000
+\sloppy
+
 
 %%% --------------------------------------------------
 %%% BACKGROUND SIDEBAR (ALL PAGES)
@@ -90,6 +93,22 @@ bottom=25mm
 	\end{flushleft}
 	\vspace{1cm}
 }
+
+
+%%% --------------------------------------------------
+%%% FLOATS
+%%% --------------------------------------------------
+
+\usepackage{floatrow}
+\floatsetup{font={sf,footnotesize},captionskip=.2\baselineskip,justification=raggedright,capposition=top}
+
+\usepackage{caption}
+\captionsetup{font={sf,footnotesize,it}
+	,labelfont={bf}
+	,justification=justified
+	,singlelinecheck=off
+	,labelsep=colon
+} 
 
 
 %%% --------------------------------------------------

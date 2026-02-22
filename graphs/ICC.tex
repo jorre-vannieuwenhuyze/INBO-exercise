@@ -37,31 +37,33 @@
 	
 \newcommand\yaxisb{%
 	\begin{tikzpicture}[baseline=0]
-	\node[plotlabel,black!50,anchor=west,align=left,xshift=2pt] at (0,9.016652) {gemiddelde = 9.02};	
-	\node[plotlabel,red!80!black,anchor=west,align=left,xshift=2pt] at (0,10.5) {grenswaarde = 10,5};
+	\node[plotlabel,black!30,anchor=west,align=left,xshift=2pt] at (0,9.016652) {gemiddelde = 9.02};	
+	\node[plotlabel,red!40!white,anchor=west,align=left,xshift=2pt] at (0,10.5) {grenswaarde = 10,5};
 	\end{tikzpicture}%
 	}	
 	
 	
 \newcommand\xaxis{%
-	\begin{tikzpicture}[x=\linewidth/11,trim left=0,trim right=\linewidth]
+	\begin{tikzpicture}[x=\linewidth/12,trim left=0,trim right=\linewidth]
+	\draw[black!50] (0,0) -- (12,0);
 	\foreach \x/\l in {0/j,1/f,2/m,3/a,4/m,5/j,6/j,7/a,8/s,9/o,10/n,11/d}{
-		\node at (\x,0) [xaxislabel,align=center]{\l};
+		\node at (\x.5,0) [xaxislabel,align=center]{\l};
 		}
 	\end{tikzpicture}%
 	}
 
 \newcommand\body{%
-	\begin{tikzpicture}[x=\linewidth/11]
-	\useasboundingbox (1,0) rectangle (12,13);
+	\begin{tikzpicture}[x=\linewidth/12]
+	\useasboundingbox (.5,0) rectangle (12.5,13);
 %	\foreach \y/\l in {0/0,1/10\,000,2/20\,000,3/30\,000,4/40\,000,5/50\,000}{
 %		\draw[mistgray] (0,\y) -- (11,\y);
 %		}
-	\draw[black!50] (1,9.016652) -- +(11,0);
-	\draw[red!80!black] (1,10.5) -- +(11,0);
+	\draw[black!30] (.5,9.016652) -- +(12,0);
+	\draw[red!40!white] (.5,10.5) -- +(12,0);
 	\foreach \x/\y in {1/7.2458,1/7.4306,2/8.6288,2/8.0061,3/9.0389,3/9.2460,4/10.8394,4/10.0922,5/10.2332,5/11.1516,6/11.0843,6/11.2657,7/11.1105,7/10.0287,8/9.6652,8/9.8641,9/8.7950,9/8.9231,10/7.6614,10/7.3010,11/7.7109,11/7.2852,12/7.1870,12/6.6051}{
 		\fill (\x,\y) circle(2pt);
 		}
+	\draw (1,7.3382) -- (2,8.3174) -- (3,9.1424) -- (4,10.4658) -- (5,10.6924) -- (6,11.1750) -- (7,10.5696) -- (8,9.7646) -- (9,8.8590) -- (10,7.4812) -- (11,7.4981) -- (12,6.8960);
 	\end{tikzpicture}%
 	}
 
@@ -96,16 +98,17 @@
 
 
 \renewcommand\body{%
-	\begin{tikzpicture}[x=\linewidth/11]
-		\useasboundingbox (1,0) rectangle (12,13);
+	\begin{tikzpicture}[x=\linewidth/12]
+		\useasboundingbox (.5,0) rectangle (12.5,13);
 		%	\foreach \y/\l in {0/0,1/10\,000,2/20\,000,3/30\,000,4/40\,000,5/50\,000}{
 			%		\draw[mistgray] (0,\y) -- (11,\y);
 			%		}
-		\draw[black!50] (1,9.016652) -- +(11,0);
-		\draw[red!80!black] (1,10.5) -- +(11,0);
+		\draw[black!30] (.5,9.016652) -- +(12,0);
+		\draw[red!40!white] (.5,10.5) -- +(12,0);
 		\foreach \x/\y in {1/8.1634,1/6.3838,2/9.4493,2/7.4728,3/9.8028,3/8.4612,4/10.7281,4/8.6904,5/9.5373,5/11.7475,6/12.5272,6/11.9835,7/11.9810,7/8.2369,8/10.8738,8/7.5407,9/9.8104,9/9.5154,10/8.8871,10/6.1224,11/6.6643,11/8.1963,12/7.6120,12/6.0121}{
 			\fill (\x,\y) circle(2pt);
-		}
+			}
+		\draw (1,7.2736) -- (2,8.4611) -- (3,9.1320) -- (4,9.7093) -- (5,10.6424) -- (6,12.2554) -- (7,10.1089) -- (8,9.2073) -- (9,9.6629) -- (10,7.5047) -- (11,7.4303) -- (12,6.8120);
 	\end{tikzpicture}%
 }
 

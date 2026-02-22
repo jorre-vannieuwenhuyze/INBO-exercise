@@ -40,7 +40,7 @@ De evaluatie gebeurt op basis van vergelijking van maandelijkse metingen
 van verschillende waterkwaliteitsparameters met wettelijke streef- en
 grenswaarden.
 	
-De optimalisatie van het onderzoeksdesign zoekt naar een design waarin op voldoende betrouwbare manier kan worden vastgesteld of een plas de streef- of grenswaarde overschrijdt, met zo weinig mogelijk staalnames en labkosten. Hoe meer staalnames worden getrokken en hoe meer deze staalnames geanalyseerd worden, hoe betrouwbaarder de resultaten maar ook hoe hoger de kosten.
+De optimalisatie van het onderzoeksdesign zoekt naar een design waarin op voldoende betrouwbare manier kan worden vastgesteld of een plas de streef- of grenswaarde overschrijdt, met zo weinig mogelijk staalnames en labokosten. Hoe meer staalnames worden getrokken en hoe meer deze geanalyseerd worden, hoe betrouwbaarder de resultaten maar ook hoe hoger de kosten.
 	
 Dit analyseplan wordt opgebroken in vijf opbouwende stappen:
 	
@@ -74,29 +74,29 @@ kunnen die uit verschillende bronnen komen:
 Met andere woorden, niet elk verschil in meetresultaat betekent dat de waterkwaliteit echt veranderd is. Een deel van de variatie is simpelweg toe te schrijven aan toeval
 bij staalname of analyse.
 
-In deze stap onderzoeken we hoeveel van de totale variatie wordt veroorzaakt door de laboratoriumvariatie. Daarvoor berekenen we de zogenaamde Intraclass Correlation Coefficient (ICC). Dit geeft aan welk deel van de totale variatie toe te schrijven is aan echte verschillen tussen de maanden (inclusief natuurlijke variatie en staalnamevariatie) en hoeveel aan verschillen tussen de verschillende testen. Omdat slechts één staal per maand wordt genomen, kunnen natuurlijke maandvariatie en staalnamevariatie niet afzonderlijk worden onderscheiden. Beide worden daarom in deze stap samen geïnterpreteerd als variatie tussen meetmomenten.
+In deze stap onderzoeken we hoeveel van de totale variatie wordt veroorzaakt door de laboratoriumvariatie. Daarvoor berekenen we de zogenaamde Intraclass Correlation Coefficient (ICC). Dit geeft aan welk deel van de totale variatie toe te schrijven is aan echte verschillen tussen de maanden (inclusief natuurlijke variatie en staalnamevariatie) en hoeveel aan verschillen tussen de verschillende testen. Omdat voor elke plas slechts één staal per maand wordt genomen, kunnen natuurlijke maandvariatie en staalnamevariatie niet afzonderlijk worden onderscheiden zonder bijkomende aannames. Beide worden daarom in deze stap samen geïnterpreteerd als variatie tussen meetmomenten. De analyses in de volgende stappen bieden een antwoord op dit probleem.
 
+De ICC kan al volgt worden geïnterpreteerd:
 \begin{itemize}
-	\item Als de ICC hoog is (bijvoorbeeld hoger dan 0.80), betekent dit dat bijna alle variatie echte verschillen weerspiegelt tussen de meetstalen (zie Figuur \ref{fig:ICC1}). De bijdrage van meetfouten door de testen is dan beperkt, en duplo-analyses voegen weinig extra informatie toe.
-	
+\item Als de ICC hoog is (bijvoorbeeld hoger dan 0.80), betekent dit dat bijna alle variatie echte verschillen weerspiegelt tussen de meetstalen (zie Figuur \ref{fig:ICC1}). De bijdrage van meetfouten door de testen is dan beperkt, en duplo-analyses voegen weinig extra informatie toe.
 	\item Als de ICC laag is (bijvoorbeeld lager dan 0.50), betekent dit dat een groot deel van de variatie afkomstig is van labo-onzekerheid (zie Figuur \ref{fig:ICC2}). In dat geval zijn duplo-analyses belangrijk om betrouwbare resultaten te verkrijgen. Het kan zelfs aangeraden zijn om het aantal analyses op te voeren per meetstaal.
 \end{itemize}
 
-Om de ICC te schatten wordt voor elke parameter een eenvoudig lineair mixed effects model met random maandeffecten. De variantie van de maandeffecten geven de echte variatie tussen de meetstalen weer, terwijl de variantie van de residuelen de variatie weergeeft ontstaan uit de testen. Dit model laat toe om objectief te beoordelen of dubbele labo-analyses noodzakelijk zijn of uitgebreid mogen worden. Het model zorgt ervoor dat  
+Om de ICC te schatten wordt voor elke parameter een eenvoudig lineair mixed effects model met random maandeffecten. De variantie van de maandeffecten geven de echte variatie tussen de meetstalen weer, terwijl de variantie van de residuelen de variatie weergeeft ontstaan uit de testen. Dit model laat toe om objectief te beoordelen of dubbele labo-analyses noodzakelijk zijn of uitgebreid mogen worden. Het model zorgt er ook voor dat  
 \begin{itemize}
-	\item een geobserveerde stijging of daling tussen de metingen van twee opvolgende maanden met grotere betrouwbaarheid kunnen worden geschat. De standaardfouten van zo'n stijging of daling kan accurater worden geschat.
-	\item een acuratere kans kunnen berekenen dat een overschrijding van drempelwaardes kan worden toegeschreven aan willekeurige fluctuaties in de meetresultaten of aan een echte overschrijding. 
+	\item een geobserveerde stijging of daling tussen de metingen van twee opvolgende maanden met grotere betrouwbaarheid kunnen worden geschat. De standaardfout van zo'n stijging of daling kan accurater worden geschat.
+	\item de kans op een overschrijding van drempelwaarden door louter willekeurige fluctuaties in de meetresultaten accurater berekend kan worden. 
 \end{itemize}
-Via een poweranalyse kan bovendien het ideale aantal metingen worden vastgesteld zodat een overschrijving van de grenswaarde met een bepaalde zekerheid kan worden vastgesteld. 
+Via een poweranalyse kan bovendien het ideale aantal metingen worden vastgesteld zodat een overschrijding van de grenswaarde met een bepaalde zekerheid kan worden vastgesteld. 
 
 \begin{figure}
-	\caption{Testresultaten met relatief hoge variatie tussen labotesten en dus lage ICC.}
+	\caption{Als de testresultaten voor dezelfde staalname relatief dicht tegen elkaar liggen is er een lage ICC en heeft herhaald testen minder nut.}
 	\label{fig:ICC1}
 	\includegraphics[page=1]{graphs/ICC.pdf}
 \end{figure}
 
 \begin{figure}
-	\caption{Testresultaten met relatief lage variatie tussen labotesten en dus hoge ICC.}
+	\caption{Als de testresultaten voor dezelfde staalname relatief ver van elkaar liggen is er een lage ICC en veel onzekerheid over de echte waarden. Herhaald testen is dan erg nuttig om betrouwbaardere resultaten te krijgen.}
 	\label{fig:ICC2}
 	\includegraphics[page=2]{graphs/ICC.pdf}
 \end{figure}
@@ -107,13 +107,13 @@ Via een poweranalyse kan bovendien het ideale aantal metingen worden vastgesteld
 
 \section{Stap 2: Analyse van seizoenseffecten en autocorrelatie}
 
-De geschatte maandeffecten in stap 1 kunnen worden vertaald naar seizoenspatronen. Die uiten zich als gelijkaardige waarden in dezelfde maand van opeenvolgende jaren. Indien blijkt dat sommige maanden duidelijk risicovoller zijn dan andere, kan het meetplan worden aangepast. Resultaten kunnen bijvoorbeeld tonen dat we beter vaker meten in de zomer en minder frequent in stabiele wintermaanden. Zo optimaliseren we de inspanningen waar het risico het grootst is en kunnen we vroegtijdig trends en verslechtering signaleren.
+De geschatte maandeffecten in stap 1 kunnen seizoenpatronen vertonen. Die uiten zich als gelijkaardige waarden in dezelfde maand van opeenvolgende jaren. Indien blijkt dat sommige maanden duidelijk risicovoller zijn dan andere, kan het meetplan worden aangepast. Resultaten kunnen bijvoorbeeld tonen dat we beter vaker meten in de zomer en minder frequent in stabiele wintermaanden. Zo optimaliseren we de inspanningen waar het risico het grootst is en kunnen we vroegtijdig trends en verslechtering signaleren.
 
 Bovendien vormen waterkwaliteitsmetingen een tijdreeks. De metingen volgen elkaar op in de tijd en zijn daardoor niet onafhankelijk. In de praktijk betekent dit dat de waarde in een bepaalde maand vaak samenhangt met de waarde in de maand ervoor. Bijvoorbeeld, als het zuurstofgehalte in juni hoog is, is de kans groot dat het in juli ook relatief hoog blijft. Dit fenomeen noemen we \emph{autocorrelatie}, de mate waarin een meting lijkt op eerdere metingen. Wanneer autocorrelatie aanwezig is, betekent dit dat de waterkwaliteit een zekere ``traagheid'' vertoont. Dit is typisch voor milieudata. Seizoenspatronen kunnen zich bovendien tonen als een specifiek type autocorrelatie. Gelijkenis tussen dezelfde maanden in opeenvolgende jaren wijst op een terugkerend seizoenspatroon. Dit wordt geïllustreerd door figuren \ref{fig:AR1} en \ref{fig:AR2} waarin duidelijke seizoenseffecten waarneembaar zijn. 
 
-Autocorrelatie kunnen we analyseren op twee manieren. Enerzijds kunnen we covariantie toelaten in het model tussen de residuelen ten op zichte van het algemeen gemiddelde. Zo'n varianties kunnen heel flexibel worden gemodelleerd, bijvoorbeeld door hoge covarianties toe te laten tussen metingen van opéénvolgende maanden terwijl metingen met grotere tijdsintervallen zwak of niet gecorreleerd zijn. Anderzijds kunnen we ook covariantie toelaten tussen de random maandeffecten waardoor de focus verschuift van het algemeen gemiddelde naar de maandgemiddelden. Opnieuw kunnen op een flexibele manier covarianties tussen deze maandeffecten worden gemodelleerd. 
+Autocorrelatie kunnen we analyseren op twee manieren. Enerzijds kunnen we covariantie toelaten in het model tussen de residuelen ten opzichte van het algemeen gemiddelde. Zo'n varianties kunnen heel flexibel worden gemodelleerd, bijvoorbeeld door hoge covarianties toe te laten tussen metingen van opeenvolgende maanden terwijl metingen met grotere tijdsintervallen zwak of niet gecorreleerd zijn. Anderzijds kunnen we ook gebruik maken van tijdreeksmodellen waarin het effect van een vorig meetresultaat expliciet wordt gemodelleerd. Opnieuw kan dit op een flexibele manier worden geïmplementeerd door enkel het effect van de vorige of twee vorige testresultaten toe te voegen. 
 
-Door autocorrelatie te analyseren, kunnen we opnieuw het onderzoeksdesign optimaliseren. Als er sterke autocorrelatie aanwezig is, bevat elke meting gedeeltelijk informatie over de volgende meting, en kan daardoor een lagere meetfrequentie soms volstaan zonder veel informatieverlies. Tegelijkertijd betekent dit echter ook dat metingen minder betrouwbaar zijn omdat er minder informatie in de data vervat zit. Als er weinig autocorrelatie aanwezig is fluctueert de waterkwaliteit sneller en minder voorspelbaar en is frequenter meten aangewezen.
+Door autocorrelatie te analyseren, kunnen we opnieuw het onderzoeksdesign optimaliseren. Als er sterke autocorrelatie aanwezig is, bevat elke meting gedeeltelijk informatie over de volgende meting, en kan daardoor een lagere meetfrequentie soms volstaan zonder veel informatieverlies. Tegelijkertijd betekent dit echter ook dat metingen minder betrouwbaar zijn omdat er minder informatie in de data aanwezig is. Als er echter weinig autocorrelatie aanwezig is fluctueert de waterkwaliteit sneller en minder voorspelbaar en is frequenter meten aangewezen.
 
 Het modelleren van autocorrelatie leidt tot correctere onzekerheidsinschattingen en daardoor tot beter onderbouwde beslissingen over meetfrequentie. Via een poweranalyse kan opnieuw het ideale aantal metingen worden vastgesteld in verschillende maanden doorheen het jaar. 
 	
@@ -150,7 +150,7 @@ Het modelleren van autocorrelatie leidt tot correctere onzekerheidsinschattingen
 	
 \section{Stap 3: Samenhang tussen waterkwaliteitsparameters}
 	
-Verschillende waterkwaliteitsparameters hangen vaak (sterk) samen. Figuur \ref{fig:corr} toont bijvoorbeeld een sterke relatie tussen de pH-waarde en de zuurstofverzadiging. Dit betekent dat metingen van de ene parameter informatie bevatten over de andere parameter. Zo'n sterke en stabiele correlaties kunnen benut worden om duurdere parameters minder frequent te meten maar te schatten op basis van goedkopere parameters. Anderzijds kan correlatie tussen parameters gebruikt worden om betrouwbaardere schattingen te krijgen van waterkwaliteit omdat de samenhang zorgt voor een hogere statistische power.
+Verschillende waterkwaliteitsparameters hangen vaak samen. Figuur \ref{fig:corr} toont bijvoorbeeld een sterke relatie tussen de pH-waarde en de zuurstofverzadiging. Dit betekent dat metingen van de ene parameter informatie bevatten over de andere parameter. Zo'n sterke en stabiele correlaties kunnen benut worden om duurdere parameters minder frequent te meten maar te schatten op basis van goedkopere parameters. Anderzijds kan correlatie tussen parameters gebruikt worden om betrouwbaardere schattingen te krijgen van waterkwaliteit omdat de samenhang zorgt voor een hogere statistische power.
 
 \begin{figure}
 	\caption{Er is een correlatie tussen de pH-waarde en de zuurstofverzadiging.}
@@ -163,12 +163,11 @@ Correlaties tussen parameters kunnen gemodelleerd worden met regressiemodellen v
 	
 	
 	
-	
 \section{Stap 4: Modelgebaseerde evaluatie van nieuwe data}
 		
 De bovenstaande stappen worden gebruikt om aan datamodel te schatten op basis van historische data waarin rekening wordt gehouden met variabiliteit en tijdsstructuur. Dit model kan vervolgens gebruikt worden om de betrouwbaarheid van nieuwe observaties in een waterplas te evalueren gegeven het tijdstip van die meting. Nieuwe metingen kunnen immers de grenswaarden overschrijden door toevallige schommelingen tijdens staalname en labo-analyse. Als de overschrijding niet statistisch significant is, kan niet met zekerheid een overschrijding worden geconcludeerd en is voorzichtigheid geboden. 
 
-Zo'n evaluatie gebeurt door predictie-intervallen te schatten. Zo'n predictie-interval geeft het statistisch bereik waarin je met een bepaalde zekerheid verwacht dat een toekomstige observatie zal vallen. Hierdoor kwantificeert het de onzerkerheid van nieuwe metingen. Wanneer nieuwe observaties buiten de predictie-intervallen vallen is dat een signaal voor mogelijkse veranderingen in waterkwaliteit. Dit geldt ook voor observaties die de grenswaarden niet overschrijven en periodes waarin grenswaarden doorgaans niet overschreden worden. 
+Zo'n evaluatie gebeurt door predictie-intervallen te schatten. Zo'n predictie-interval geeft het statistisch bereik waarin je met een bepaalde zekerheid verwacht dat een toekomstige observatie zal vallen. Hierdoor kwantificeert het de onzekerheid van nieuwe metingen. Wanneer nieuwe observaties buiten de predictie-intervallen vallen is dat een signaal voor mogelijke veranderingen in waterkwaliteit. Dit geldt ook voor observaties die de grenswaarden niet overschrijden of periodes waarin grenswaarden doorgaans niet overschreden worden. 
 
 
 
@@ -193,6 +192,10 @@ In dit soort situaties kunnen verschillende beslissingen worden genomen zoals
 \end{itemize}
 Wanneer metingen stabiliseren, wordt het meetplan teruggebracht naar het basisniveau, volgens vooraf vastgelegde beslisregels.
 
+
+
+
+	
 	
 	
 	
